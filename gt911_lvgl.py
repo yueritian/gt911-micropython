@@ -105,11 +105,9 @@ class GT911:
     def callback(self, driver, data):
         points = self.get_points()
         if points:
-            #print("Received touch events:")
             self.point = points[0]
             data.point = points[0]
             data.state = lv.INDEV_STATE.PRESSED
-            print(f"  Touch: {data.point.x}, {data.point.y}, {data.state}")
         else:
             data.point = self.point
             data.state = lv.INDEV_STATE.RELEASED
